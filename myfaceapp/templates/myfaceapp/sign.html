@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyWitter</title>
+  <link rel="shortcut icon" href="images/ico.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .sub {
+      width: 100%;
+      height: 100%;
+      /* display: -webkit-box;
+  display: -ms-flexbox; */
+      /* display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center; */
+      align-items: center;
+      /* -webkit-box-pack: center;
+  -ms-flex-pack: center; */
+      text-align: center;
+      /* justify-content: center; */
+      background-color: #f0f2f5;
+      justify-content: space-between;
+    }
+
+    .sub .face {
+
+      width: 100%;
+      height: 100%;
+    }
+
+    .sub .face #myfacebook {
+      width: 600px;
+      height: 600px;
+      text-align: right;
+      margin-left: 250px;
+      margin-top: 30px;
+      margin-bottom: 70px;
+    }
+
+    .sub .face .para-1 {
+      font-size: 2.5rem;
+      font-family: "Roboto";
+    }
+
+    .sub .form {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      width: 25vw;
+      padding-top: 1.5rem;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: #ffff;
+      margin-left: 1rem;
+      box-shadow: -3px 1px 24px 5px rgba(186, 169, 169, 0.75);
+      -webkit-box-shadow: -3px 1px 24px 5px rgba(186, 169, 169, 0.75);
+      -moz-box-shadow: -3px 1px 24px 5px rgba(186, 169, 169, 0.75);
+      min-height: 40vh;
+      border-radius: 2rem;
+      margin-right: 250px;
+      margin-top: 20px;
+    }
+
+    .sub .form form {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      margin: 25px;
+    }
+
+    .sub .form form input {
+      width: 20rem;
+      margin-bottom: 2rem;
+      height: 6vh;
+      border: 1px solid #4b4d4d;
+      border-radius: 20px;
+      padding-left: 20px;
+    }
+
+    .sub .form form input::-webkit-input-placeholder {
+      text-align: left;
+      font-size: 1.1rem;
+      font-family: "Roboto";
+      color: #4b4d4d;
+      text-transform: capitalize;
+    }
+
+    .sub .form form input:-ms-input-placeholder {
+      text-align: left;
+      font-size: 1.1rem;
+      font-family: "Roboto";
+      color: #4b4d4d;
+      text-transform: capitalize;
+    }
+
+    .sub .form form input::-ms-input-placeholder {
+      text-align: left;
+      font-size: 1.1rem;
+      font-family: "Roboto";
+      color: #4b4d4d;
+      text-transform: capitalize;
+    }
+
+    .sub .form form input::placeholder {
+      text-align: left;
+      font-size: 1.1rem;
+      font-family: "Roboto";
+      color: #4b4d4d;
+      text-transform: capitalize;
+    }
+
+    .sub .form form input:focus {
+      border: 1px solid red;
+      outline: none;
+    }
+
+    .sub .form form button {
+      padding: 20px 25px;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      background-color: #166fe5;
+      font-size: 1.5rem;
+      font-family: "Roboto";
+      font-weight: 900;
+      color: #ffff;
+      letter-spacing: 2px;
+    }
+
+    .sub .form a {
+      text-decoration: none;
+      font-family: "Roboto";
+      font-size: 1rem;
+      text-align: center;
+      margin: 25px 0px;
+    }
+
+    .sub .form button {
+      padding: 15px 25px;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      background-color: #36a420;
+      font-size: 1.5rem;
+      font-family: "Roboto";
+      font-weight: 900;
+      color: #ffff;
+      letter-spacing: 2px;
+      margin-bottom: 3rem;
+    }
+
+    .sub .login {
+      display: none;
+      position: absolute;
+      left: 43rem;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      width: 25vw;
+      padding-top: 1.5rem;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: #ffff;
+      margin-left: 1rem;
+      box-shadow: -3px 1px 24px 5px rgba(186, 169, 169, 0.75);
+      -webkit-box-shadow: -3px 1px 24px 5px rgba(186, 169, 169, 0.75);
+      -moz-box-shadow: -3px 1px 24px 5px rgba(186, 169, 169, 0.75);
+      min-height: 40vh;
+      border-radius: 2rem;
+      -webkit-transition: all 0.5s ease-out;
+      transition: all 0.5s ease-out;
+    }
+
+    .sub .login #crosses {
+      position: absolute;
+      right: -5rem;
+      color: #000;
+      cursor: pointer;
+      font-size: 2rem;
+    }
+
+    .sub .login #crosses .cross-1 {
+      -webkit-transform: rotate(32deg);
+      transform: rotate(32deg);
+    }
+
+    .sub .login #crosses .cross-2 {
+      -webkit-transform: rotate(-34deg);
+      transform: rotate(-34deg);
+    }
+
+    .sub .login form {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+
+    .sub .login form button {
+      padding: 20px 25px;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      background-color: #166fe5;
+      font-size: 1.5rem;
+      font-family: "Roboto";
+      font-weight: 900;
+      color: #ffff;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .sub .login form input {
+      width: 20rem;
+      margin-bottom: 2rem;
+      height: 6vh;
+      border: 1px solid #4b4d4d;
+      border-radius: 20px;
+      padding-left: 20px;
+    }
+
+    .sub .login form input::-webkit-input-placeholder {
+      text-align: left;
+      font-size: 1.1rem;
+      font-family: "Roboto";
+      color: #4b4d4d;
+      text-transform: capitalize;
+    }
+
+    .sub .login form input:-ms-input-placeholder {
+      text-align: left;
+      font-size: 1.1rem;
+      font-family: "Roboto";
+      color: #4b4d4d;
+      text-transform: capitalize;
+    }
+
+    .sub .login form input::-ms-input-placeholder {
+      text-align: left;
+      font-size: 1.1rem;
+      font-family: "Roboto";
+      color: #4b4d4d;
+      text-transform: capitalize;
+    }
+
+    .sub .login form input::placeholder {
+      text-align: left;
+      font-size: 1.1rem;
+      font-family: "Roboto";
+      color: #4b4d4d;
+      text-transform: capitalize;
+    }
+
+    .sub .login form input:focus {
+      border: 1px solid red;
+      outline: none;
+    }
+
+    @media (max-width: 500px) {
+      .sub {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+    }
+
+    /*# sourceMappingURL=signup.css.map */
+  </style>
+</head>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{message.tags}} !</strong> {{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %}
+<div class="sub">
+  <div class="face">
+    <img src="{% static 'images/Witter.png' %}" id="myfacebook" alt="" srcset="" />
+    <!-- <p class="para-1"> 
+      Myfacebook helps you connect and share with the people in your life.
+    </p>-->
+  </div>
+  <div class="form">
+    <form action="{% url 'login' %}" method="POST" class="singup">
+      {% csrf_token %}
+      <input type="text" name="username" class="email" placeholder="Username" />
+      <input type="password" name="password" class="password" placeholder="password here" />
+      <button class="submit">Log In</button>
+    </form>
+    <a href="" class="forget">Forgotten password?</a>
+    <button class="create-account" id="create-account">Create New Account</button>
+  </div>
+  <div class="login" id="login">
+    <div id="crosses">
+      &#10008;
+    </div>
+    <form action="" method="POST" class="login-form">
+      {% csrf_token %}
+      <input type="email" name="email" class="email" placeholder="Email" />
+      <input type="text" name="username" class="username" placeholder="Username" />
+      <input type="text" name="fname" class="First Name" placeholder="First Name" />
+      <input type="text" name="lname" class="Last Name" placeholder="Last Name" />
+      <input type="password" name="password" class="password" placeholder="password here" />
+      <button class="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
